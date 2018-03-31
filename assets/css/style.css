@@ -1,5 +1,27 @@
+/* Link to use Google Font with Bootstrap */
 @import url('https://fonts.googleapis.com/css?family=Montserrat');
 
 body {
 	font-family: 'Montserrat', sans-serif !important;
+}
+
+.jumbotron {
+	background-color: #FDAB00 !important;
+}
+.header {
+	color: #000;
+	text-align: center;
+}
+
+.schedule-header {
+	background-color: #7F09B0 !important;
+}
+
+.form-header {
+	background-color: #19FD95 !important;
+	color: #000;
+}
+
+.button-add {
+	background-color: #19FD95;
 }

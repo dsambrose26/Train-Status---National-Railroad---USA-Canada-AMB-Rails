@@ -1,43 +1,75 @@
-//This is for the workers that render the logic to the views (and generate the views)
+// This is for the workers that render the logic to the views (and generate the views)
 
 // controller object
 let controller = {
 
-    // Create a capture for all the form fields 
+    // capture all the fields in the form area
     captureFormFields: () => {
         $('body').on("click", ".button-add", () => {
-    
-    // Create event. to prevent form submission
+            // prevent form from submitting
              event.preventDefault();
 
-    // Create variables with values from form fields
-            
-    // console log all the entries for testing
-          
-    // clear all the fields in the form
-           
-    // view.updateTrainScheduleTable();
+             // variables from the form field values
+            trainNumber = $('#train-number').val().trim();
+            trainLine = $('#train-line').val().trim();
+            trainDestination = $('#train-destination').val().trim();
+            trainDeparture = $('#train-departure').val().trim();
+            trainFrequency = $('#train-frequency').val().trim();
+            trainPlatform = $('#train-platform').val().trim();
 
-    // Time Calculation functions (& create variables)
+            // console log all the entries for testing
+            // console.log(trainNumber)
+            // console.log(trainLine)
+            // console.log(trainDestination)
+            // console.log(trainDeparture)
+            // console.log(trainFrequency)
+            // console.log(trainPlatform)
+            controller.nextArrival();
+            controller.minutesAway();
 
-       // First Time (pre-date a year)
-       
-       // Current Time
-    
-       // Time difference 
-       
-       // Time remainder
-       
-       // Create time display in minutes before train arrives
-       
+            // clear all the fields in the form
+            $('.form-control').val("");
+
+            model.pushNewTrain();
+            // view.updateTrainScheduleTable();
+
+        });
+    },
+
+    // Time Calculation functions 
+
+    nextArrival: () => {
+       // First Time (pushed back 1 year to make sure it comes before current time)
+       var trainDepartureCoverted = moment(trainDeparture, "hh:mm").subtract(1, 'years');
+       // get Current Time
+       var currentTime = moment();
+       //difference between the times
+       var diffTime = moment().diff(moment(trainDepartureCoverted), "minutes");
+       // Time apart (remainder)
+       var timeRemainder = diffTime % trainFrequency;
+       //minutes until Train
+       var timeInMinutesTillTrain = trainFrequency - timeRemainder;
        //Next Train
-       
-       // First Time (pre-date a year)
-       
-       // Current Time
+       nextTrain = moment().add(timeInMinutesTillTrain, 'minutes');
+       nextTrain = moment(nextTrain).format('h:mm A');
+   },
 
-       // Time difference 
-       
-       // Time remainder
-       
-       // Create time display in minutes before train arrives
+   minutesAway: () => {
+       // First Time (pushed back 1 year to make sure it comes before current time)
+       var trainDepartureCoverted = moment(trainDeparture, "hh:mm").subtract(1, 'years');
+       //Current Time
+       var currentTime = moment();
+       //difference between the times
+       var diffTime = moment().diff(moment(trainDepartureCoverted), "minutes");
+       // Time apart (remainder)
+       var timeRemainder = diffTime % trainFrequency;
+       //minutes until Train
+       minutesAway = trainFrequency - timeRemainder;
+       minutesAway = moment().startOf('day').add(minutesAway, 'minutes').format('HH:mm');
+       return moment(minutesAway).format('HH:mm');
+   },
+   convertFrequency: () => {
+       trainFrequency = moment().startOf('day').add(trainFrequency, 'minutes').format('HH:mm');
+   }
+
+};
