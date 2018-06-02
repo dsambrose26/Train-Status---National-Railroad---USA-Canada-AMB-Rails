@@ -1,7 +1,7 @@
 # Train-Status---National-Railroad---USA-Canada-AMB-Rails
 
- https://dsambrose26.github.io/Train-Status---National-Railroad---USA-Canada-AMB-Rails/
- 
+##### [Browser View](https://dsambrose26.github.io/Train-Status---National-Railroad---USA-Canada-AMB-Rails/ "Homepage")
+
 Created a train schedule app from Firebase to host arrival and departure data
 
 Provided up-to-date information about various trains (i.e. arrival time, minutes till departure)
@@ -17,3 +17,6 @@ Administrators can submit:
     * Frequency -- in minutes
   
   The app calculates arrival of the next train relative to the current time
+  
+##### [Download my Resume](https://dsambrose26.github.io/derek_ambroseResume/ "pdfResume")
+  
