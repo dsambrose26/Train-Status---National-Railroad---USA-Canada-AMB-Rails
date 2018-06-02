@@ -19,4 +19,5 @@ Administrators can submit:
   The app calculates arrival of the next train relative to the current time
   
 ##### [Download my Resume](https://dsambrose26.github.io/derek_ambroseResume/ "pdfResume")
+##### [LinkedIn](https://www.linkedin.com/in/derek-ambrose-157830144/ "linkedIn") 
   
