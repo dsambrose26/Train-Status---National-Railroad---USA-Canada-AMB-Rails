@@ -2,7 +2,7 @@
 
 ### [Browser View](https://dsambrose26.github.io/Train-Status---National-Railroad---USA-Canada-AMB-Rails/ "Homepage")
 
-Created a train schedule app from Firebase to host arrival and departure data
+Created a train schedule app from **Firebase** to host arrival and departure data
 
 Provided up-to-date information about various trains (i.e. arrival time, minutes till departure)
 
